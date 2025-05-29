@@ -1,6 +1,6 @@
 # Release Process
 
-Update the version in `__init__.py` and `setup.py`.
+Update the version in `setup.py`.
 
 Then build as below.
 

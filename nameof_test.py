@@ -8,7 +8,7 @@ def test_variable_name():
 
 
 def test_multiple_variables_same_value():
-    a = b = 42
+    a = b = 42 # type: ignore
     result = nameof(a)
     
     assert result == "a", " Only the first variable name should be returned"

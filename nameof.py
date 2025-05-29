@@ -17,7 +17,7 @@ def nameof(var: Any):
             call_line = code_context[0].strip()
             tree = ast.parse(call_line)
             for node in ast.walk(tree):
-                if isinstance(node, ast.Call) and hasattr(node.func, 'id') and node.func.id == 'nameof':
+                if isinstance(node, ast.Call) and hasattr(node.func, 'id') and node.func.id == 'nameof': #type:ignore
                     if node.args:
                         arg = node.args[0]
                         if isinstance(arg, ast.Name):
@@ -29,11 +29,6 @@ def nameof(var: Any):
     except Exception as e:
         print(e)
     
-    # if code_context:
-    #     call_line = code_context[0]
-    #     if "." in call_line:
-    #         return call_line.split(".")[-1].strip().strip("()")
-        
     # Fallback to variable name logic
     frame = inspect.currentframe()
     if frame is not None and frame.f_back is not None:
