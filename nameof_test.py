@@ -42,6 +42,13 @@ def test_function_param():
         return nameof(x)
 
     assert f(5) == "x"
+    
+    
+def test_string_interpolation():
+    def f(x: int):
+        return nameof(x)
+
+    assert f"{f(5)} and {f(10)}" ==  "x and x"
 
 
 def test_class_variable():

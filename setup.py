@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="python-nameof",
-    version="1.1.1",
+    version="1.1.2",
     description="A Python implementation of the C# nameof operator.",
     author="Alessio Lombardi",
     author_email="work@alelom.com",

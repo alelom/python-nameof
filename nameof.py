@@ -1,6 +1,6 @@
 import inspect
 import ast
-from typing import Any, Callable
+from typing import Any
 
 
 def nameof(var: Any):
