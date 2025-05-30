@@ -1,11 +1,11 @@
-# Python implementation of the C# nameof operator
+# `python-nameof`: a Python implementation of the useful C# `nameof` operator
 
-python-nameof
-=============
+A Python utility that mimics the [C# `nameof` operator](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof?redirectedfrom=MSDN), allowing you to get variable, attribute, or property names as strings at runtime.
 
-A Python utility that mimics the C# `nameof` operator, allowing you to get variable, attribute, or property names as strings at runtime.
+It is an essential operator to allow flexible and reliable refactoring, among [many other things](https://stackoverflow.com/q/31695900/3873799).
 
-It supports string interpolation, so it's easier to reference variable names when logging, allowing for easier and more robust refactoring.
+This implementation supports string interpolation, so it's easy to reference variable names when logging, e.g.  
+`log.error(f"{nameof(somevariable)} is incorrect")`.
 
 ## Installation
 
