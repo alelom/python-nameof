@@ -1,3 +1,5 @@
+if True:
+    import os; os.environ["nameof_test"] = "True"
 from nameof import nameof
 import sys
 

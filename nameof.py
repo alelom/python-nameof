@@ -1,7 +1,7 @@
 import inspect
 import ast
 from typing import Any
-
+import os
 
 def nameof(var: Any):
     # Try to extract the argument expression from the caller's source code
@@ -27,6 +27,7 @@ def nameof(var: Any):
                             return arg.attr
               
     except Exception as e:
-        print(e)
+        if os.environ.get("nameof_test") or os.environ.get("nameof_test_debug"):
+            print("Error in nameof function:", e)
     
     raise ValueError("Could not determine variable name. Ensure the variable is defined in the caller's scope.")
