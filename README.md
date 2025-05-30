@@ -1,4 +1,4 @@
-# `python-nameof`: a Python implementation of the useful C# `nameof` operator
+# `python-nameof`: a Python implementation of C# `nameof` operator
 
 A Python utility that mimics the [C# `nameof` operator](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof?redirectedfrom=MSDN), allowing you to get variable, attribute, or property names as strings at runtime.
 
