@@ -8,7 +8,7 @@ Requirement: `pip install build`
 
 ## Build from Windows
 
-```
+```cmd
 del dist\*.* /Q && python -m build
 ```
 
@@ -26,6 +26,14 @@ to delete any previous releases from the `dist` folder and then build.
 ## Release on PyPI
 
    
-Upload to PyPi: `python -m twine upload dist/*` 
+Upload to PyPi: 
 
-Upload to PyPiTest: `python -m twine upload --repository testpypi dist/*`
+```cmd/bash
+python -m twine upload dist/*
+```
+
+Upload to PyPiTest: 
+
+```cmd/bash
+python -m twine upload --repository testpypi dist/*
+```
