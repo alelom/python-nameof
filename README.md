@@ -40,10 +40,10 @@ allowing for easier refactoring.
 In the example below, refactoring the name of second_param will propagate to the printed message without having to manually do it.
 
 ```python
-def myFuncWithAmazingLogging(first_param: int, second_param: int):
+def myFuncWithAmazingLogging(first_param: int):
     valid_threshold = 10
-    if second_param < 10:
-        print(f"The parameter {nameof(second_param)} should be less than {valid_threshold}")
+    if first_param < 10:
+        print(f"The parameter {nameof(first_param)} should be less than {valid_threshold}")
 ```
 
 It works for class attributes and instance variables.
@@ -54,14 +54,11 @@ class Bar:
 bar = Bar()
 print(nameof(Bar.attr))      # Output: 'attr'
 print(nameof(bar.attr))      # Output: 'attr'
+```
 
-class MyClass:
-    def __init__(self):
-        self.instance_var = 123
+It works also for nested classes.
 
-obj = MyClass()
-print(nameof(obj.instance_var))  # Output: 'instance_var'
-
+```python
 class Inner:
     @property
     def value(self):
@@ -73,6 +70,19 @@ class Outer:
 
 outer = Outer()
 print(nameof(outer.inner.value))  # Output: 'value'
+```
+
+## Multiple assignments
+
+If a variable is assigned twice, only the first name is returned.
+
+```python
+a = b = 1
+
+nameof(a) # returns "a"
+nameof(b) # returns "b"
+
+nameof(1) # raises ValueError (see next section below)
 ```
 
 ## Error Handling
