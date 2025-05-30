@@ -11,9 +11,11 @@ def test_variable_name():
 
 def test_multiple_variables_same_value():
     a = b = 42 # type: ignore
-    result = nameof(a)
+    result_a = nameof(a)
+    result_b = nameof(b)
     
-    assert result == "a", " Only the first variable name should be returned"
+    assert result_a == "a", "Only the first variable name should be returned"
+    assert result_b == "b", "Only the first variable name should be returned"
 
 
 def test_invalid_arg_int():
