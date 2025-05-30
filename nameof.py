@@ -29,14 +29,4 @@ def nameof(var: Any):
     except Exception as e:
         print(e)
     
-    # Fallback to variable name logic
-    frame = inspect.currentframe()
-    if frame is not None and frame.f_back is not None:
-        callers_local_vars = frame.f_back.f_locals.items()
-        names = [name for name, val in callers_local_vars if val is var]
-        if len(names) == 1:
-            return names[0]
-        elif len(names) > 1:
-            return "_and_".join(names)
-    
     raise ValueError("Could not determine variable name. Ensure the variable is defined in the caller's scope.")
