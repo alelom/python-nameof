@@ -7,7 +7,7 @@ It is an essential operator to allow flexible and reliable refactoring, among [m
 This implementation supports string interpolation, so it's easy to reference variable names when logging, e.g.  
 `log.error(f"{nameof(somevariable)} is incorrect")`.
 
-_**NOTE**: This is a follow up to [this project](https://github.com/alexmojaki/nameof) since the author archived it, preferring the [`varname`](https://github.com/pwwang/python-varname) library which [used to cover `nameof`](https://github.com/pwwang/python-varname/issues/117), but [varname has deprecated it](https://github.com/pwwang/python-varname/commit/1a342b3dc54f0363deb26a80dcdf608341a9594c#diff-dc2f15ddf68ad966f2e3d02f7f4e307cf691fed747df8087c10c3861e2bbc031).`
+_**NOTE**: This is a follow up to [this project](https://github.com/alexmojaki/nameof) since the author archived it, preferring the [`varname`](https://github.com/pwwang/python-varname) library which [used to cover `nameof`](https://github.com/pwwang/python-varname/issues/117), but [varname has deprecated it](https://github.com/pwwang/python-varname/commit/1a342b3dc54f0363deb26a80dcdf608341a9594c#diff-dc2f15ddf68ad966f2e3d02f7f4e307cf691fed747df8087c10c3861e2bbc031)._
 
 ## Installation
 
