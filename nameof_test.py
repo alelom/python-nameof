@@ -81,7 +81,19 @@ def test_nested_class_property():
     
     # Test nameof on property of another class via instance
     assert nameof(outer.inner.value) == "value", f"Returned: {nameof(outer.inner.value)} instead of 'value'"
+    
 
+def test_multiple_names():
+    x=1
+    y=1
+    
+    try:
+        name = nameof(1)
+    except ValueError:
+        return
+    
+    raise Exception("Expected ValueError not raised for unknown variable name.")
+    
     
 def run_all_tests():
     current_module = sys.modules[__name__]
