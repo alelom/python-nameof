@@ -1,9 +1,9 @@
 import inspect
 import ast
-from typing import Any
+from typing import Any, Union
 import os
 
-def nameof(var: Any, wrap_in_chars: str = "", replace_with_whitespace: str | list[str] = [] ) -> str:
+def nameof(var: Any, wrap_in_chars: str = "", replace_with_whitespace: Union[str, list[str]] = [] ) -> str:
     """
     Returns the name of the variable or attribute passed as the first argument.
     
