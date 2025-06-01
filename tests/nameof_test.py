@@ -1,5 +1,8 @@
 if True:
-    import os; os.environ["nameof_test"] = "True"
+    import sys, os
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+    os.environ["nameof_test"] = "True"
+    
 from nameof import nameof
 import sys
 

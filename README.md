@@ -34,10 +34,64 @@ Simple usage:
 
 ```python
 foo = 123
-print(nameof(foo))  # Output: 'foo'
+nameof(foo)  # Output: 'foo'
 ```
 
-It supports string interpolation, so it's easier to reference variable names when logging,
+### Additional Parameters
+
+The `nameof` function supports two optional parameters for formatting the output:
+
+- `wrap_in_chars`: Wraps the variable name with the specified string at the start and end.
+- `replace_with_whitespace`: Removes all occurrences of the specified character(s) from the variable name and replaces them with a whitespace. Accepts a string or a list of strings.
+
+These are especially useful if you are logging to markdown format (printing messages as Markdown), to format variable names as code or to remove underscores for readability.
+
+
+```python
+some_param = 1
+
+# Combine both: wrap in backticks and remove underscores
+nameof(some_param, "`", "_")  # Output: '`some param`'
+
+```
+
+This is useful when generating Markdown documentation or error messages:
+
+```python
+def validate(some_param):
+    if some_param < 0:
+        # Prints: The parameter `someparam` must be positive.
+        print(f"The parameter {nameof(some_param, wrap_in_chars='`', replace_with_whitespace='_')} must be positive.")
+```
+
+
+### Multiple assignments
+
+If a variable is assigned twice, only the first name is returned.
+
+```python
+a = b = 1
+
+nameof(a) # returns "a"
+nameof(b) # returns "b"
+
+nameof(1) # raises ValueError (see next section below)
+```
+
+### Error Handling
+
+If you pass a value or an expression that is not a variable or attribute, `nameof` raises a `ValueError`:
+
+```python
+nameof(42)            # Raises ValueError
+nameof("foo.bar")     # Raises ValueError
+nameof("nameof(bar)") # Raises ValueError
+```
+
+
+## More usage examples
+
+`nameof()` supports string interpolation, so it's easier to reference variable names when logging,
 allowing for easier refactoring.  
 In the example below, refactoring the name of second_param will propagate to the printed message without having to manually do it.
 
@@ -54,8 +108,8 @@ It works for class attributes and instance variables.
 class Bar:
     attr = 99
 bar = Bar()
-print(nameof(Bar.attr))      # Output: 'attr'
-print(nameof(bar.attr))      # Output: 'attr'
+nameof(Bar.attr)      # Output: 'attr'
+nameof(bar.attr)      # Output: 'attr'
 ```
 
 It works also for nested classes.
@@ -71,28 +125,7 @@ class Outer:
         self.inner = Inner()
 
 outer = Outer()
-print(nameof(outer.inner.value))  # Output: 'value'
+nameof(outer.inner.value)  # Output: 'value'
 ```
 
-## Multiple assignments
 
-If a variable is assigned twice, only the first name is returned.
-
-```python
-a = b = 1
-
-nameof(a) # returns "a"
-nameof(b) # returns "b"
-
-nameof(1) # raises ValueError (see next section below)
-```
-
-## Error Handling
-
-If you pass a value or an expression that is not a variable or attribute, `nameof` raises a `ValueError`:
-
-```python
-nameof(42)            # Raises ValueError
-nameof("foo.bar")     # Raises ValueError
-nameof("nameof(bar)") # Raises ValueError
-```
