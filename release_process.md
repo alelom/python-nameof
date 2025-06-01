@@ -1,6 +1,6 @@
 # Release Process
 
-Update the version in `setup.py`.
+Update the version in `pyproject.toml`.
 
 Then build as below.
 
@@ -25,6 +25,7 @@ to delete any previous releases from the `dist` folder and then build.
 
 ## Release on PyPI
 
+First, if needed: `pip install twine`
    
 Upload to PyPi: 
 

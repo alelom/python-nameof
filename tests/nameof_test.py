@@ -108,6 +108,8 @@ def run_all_tests():
     ]
     for test_func in test_functions:
         test_func()
+        
+    print("All tests passed.")
 
 
 if __name__ == "__main__":
