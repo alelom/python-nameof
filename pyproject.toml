@@ -3,8 +3,8 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "python-nameof"
-version = "2.0.0"
+name = "python_nameof"
+version = "2.0.2"
 description = "A Python implementation of the C# nameof operator."
 authors = [
     { name="Alessio Lombardi", email="work@alelom.com" }
@@ -20,7 +20,7 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/alelom/python-nameof"
+Homepage = "https://github.com/alelom/python_nameof"
 
 [tool.setuptools]
 packages = ["nameof"]

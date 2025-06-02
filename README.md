@@ -14,13 +14,13 @@ This implementation supports string interpolation, so it's easy to reference var
 Pip:
 
 ```bash
-pip install python-nameof
+pip install python_nameof
 ```
 
 My recommendation is to always use [`uv`](https://docs.astral.sh/uv/) instead of pip – I personally think it's the best package and environment manager for Python.
 
 ```bash
-uv add python-nameof
+uv add python_nameof
 ```
 
 ## Usage
@@ -36,6 +36,27 @@ Simple usage:
 foo = 123
 nameof(foo)  # Output: 'foo'
 ```
+
+You can test it in a simple refactoring operation. For example:
+
+```python
+def print_variables(temperature: int)
+    print(f"The parameter {nameof(temperature)} is: {temperature}")
+```
+
+> The parameter temperature is: 34
+
+If you refactor (_e.g. VSCode: press **F2** on the variable name_) the input parameter from `temperature` to `temperature_celsius`, you will get:
+```python
+def print_variables(temperature_celsius: int)
+    print(f"The parameter {nameof(temperature_celsius)} is: {temperature_celsius}")
+```
+
+So the _printed name follows the name of the actual parameter after a refactor_.
+
+> The parameter temperature_celsius is: 34
+
+
 
 ### Additional Parameters
 
@@ -58,11 +79,12 @@ nameof(some_param, "`", "_")  # Output: '`some param`'
 This is useful when generating Markdown documentation or error messages:
 
 ```python
-def validate(some_param):
-    if some_param < 0:
-        # Prints: The parameter `someparam` must be positive.
-        print(f"The parameter {nameof(some_param, wrap_in_chars='`', replace_with_whitespace='_')} must be positive.")
+def print_variables(temperature_celsius: int)
+    print(f"The parameter {nameof(temperature_celsius, "`", "_")} is: {temperature_celsius}")
 ```
+
+This will plot a nicely formatted markdown, useful if you do logging in markdown:
+> The parameter `temperature celsius` is: 34
 
 
 ### Multiple assignments
