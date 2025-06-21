@@ -2,7 +2,7 @@
 
 > _This is a follow-up to [this project](https://github.com/alexmojaki/nameof) since the author archived it, preferring the [`varname`](https://github.com/pwwang/python-varname) library which [used to cover `nameof`](https://github.com/pwwang/python-varname/issues/117), but then [`varname` deprecated it](https://github.com/pwwang/python-varname/commit/1a342b3dc54f0363deb26a80dcdf608341a9594c#diff-dc2f15ddf68ad966f2e3d02f7f4e307cf691fed747df8087c10c3861e2bbc031)._
 
-> **NOTE: [`nameof()` is now back in v.0.15.0 of `varname`](https://github.com/pwwang/python-varname/issues/117#issuecomment-2992408664)**.
+> **UPDATE 20/06/2025: [`nameof()` is now back in v.0.15.0 of `varname`](https://github.com/pwwang/python-varname/issues/117#issuecomment-2992408664)**.
 
 A Python utility that mimics the [C# `nameof` operator](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof?redirectedfrom=MSDN), allowing you to get variable, attribute, or property names as strings at runtime.
 
